@@ -1,0 +1,86 @@
+<!-- res/layout/item_umc.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="0dp"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="163dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제목"
+            android:textStyle="bold"
+            android:textColor="#525252"
+            android:textSize="16sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/thumbBox"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <TextView
+            android:id="@+id/tvItemDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="설명"
+            android:textColor="#525252"
+            android:textSize="12sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/tvItemTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvItemTitle"
+            app:layout_constraintEnd_toStartOf="@id/thumbBox" />
+
+        <TextView
+            android:id="@+id/tvItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2026.01.10"
+            android:textColor="#5D5D5D"
+            android:textSize="12sp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="@id/tvItemTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvItemDesc" />
+
+        <!-- 오른쪽 썸네일 영역 -->
+        <FrameLayout
+            android:id="@+id/thumbBox"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#E0E0E0"
+            android:layout_marginStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- 퍼센트 칩 -->
+            <TextView
+                android:id="@+id/tvPercent"
+                android:layout_width="33.1dp"
+                android:layout_height="17dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="6.84dp"
+                android:gravity="center"
+                android:text="25%"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_percent_chip"
+                android:padding="0dp" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

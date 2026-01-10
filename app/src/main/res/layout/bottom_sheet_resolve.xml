@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingStart="28dp"
+    android:paddingEnd="28dp"
+    android:paddingTop="28dp"
+    android:paddingBottom="26dp">
+
+    <!-- 회색 원 -->
+    <View
+        android:id="@+id/vCircle"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_circle_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 민트 체크 메시지 아이콘 -->
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/checkmessage"
+        app:layout_constraintTop_toTopOf="@id/vCircle"
+        app:layout_constraintBottom_toBottomOf="@id/vCircle"
+        app:layout_constraintStart_toStartOf="@id/vCircle"
+        app:layout_constraintEnd_toEndOf="@id/vCircle"/>
+
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="갈등이 잘 해소되었나요?"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#525252"
+        android:gravity="center"
+        android:layout_marginTop="38dp"
+        app:layout_constraintTop_toBottomOf="@id/vCircle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 설명 -->
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="감정의 수치가 현재 어느 정도까지 안정되었는지 알려주세요."
+        android:textSize="16sp"
+        android:textColor="#5D5D5D"
+        android:gravity="center"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 퍼센트 -->
+    <TextView
+        android:id="@+id/tvPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30%"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="#525252"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 왼쪽 불 -->
+    <TextView
+        android:id="@+id/tvFireLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔥"
+        android:textSize="26sp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/tvPercent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- 불(우) -->
+    <TextView
+        android:id="@+id/tvFireHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔥"
+        android:textSize="44sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvPercent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/trackContainer"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/tvFireLow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 회색 트랙 -->
+        <View
+            android:id="@+id/trackBg"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_track_inactive"/>
+
+        <!-- 민트 트랙(진행) : scaleX로 늘릴거라 왼쪽 고정 -->
+        <View
+            android:id="@+id/trackActive"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_track_active"
+            android:scaleX="0"
+            android:transformPivotX="0dp"/>
+
+        <!-- 민트 동그라미 thumb -->
+        <View
+            android:id="@+id/thumbDot"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:background="@drawable/bg_thumb_dot" />
+
+    </FrameLayout>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:value="30"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:haloRadius="0dp"
+        app:thumbColor="@android:color/transparent"
+        app:thumbRadius="0dp"
+        app:trackColorActive="@android:color/transparent"
+        app:trackColorInactive="@android:color/transparent"
+        app:trackHeight="0dp"
+        app:layout_constraintTop_toTopOf="@id/trackContainer"
+        app:layout_constraintBottom_toBottomOf="@id/trackContainer"
+        app:layout_constraintStart_toStartOf="@id/trackContainer"
+        app:layout_constraintEnd_toEndOf="@id/trackContainer"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
