@@ -48,4 +48,7 @@ class UmcAdapter(
     fun archive(pos: Int) {
         notifyItemChanged(pos)
     }
+
+    fun getItems(): List<UmcItem> = items
+
 }
