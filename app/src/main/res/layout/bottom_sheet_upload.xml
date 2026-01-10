@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="14dp"
+    android:paddingBottom="22dp">
+
+    <View
+        android:id="@+id/handle"
+        android:layout_width="72dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg_handle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvLeftTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="상황 사진 업로드"
+        android:textColor="#2B2B2B"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintTop_toBottomOf="@id/handle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvAll"
+        android:layout_marginEnd="12dp"/>
+
+    <TextView
+        android:id="@+id/tvAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모든 사진"
+        android:textColor="#18D3CD"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvLeftTitle"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- ✅ 회색 네모 + 카메라 버튼 -->
+    <ImageButton
+        android:id="@+id/btnPickPhotos"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_photo_item"
+        android:src="@android:drawable/ic_menu_camera"
+        android:scaleType="center"
+        android:contentDescription="@null"
+        android:padding="26dp"
+        app:layout_constraintTop_toBottomOf="@id/tvLeftTitle"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <HorizontalScrollView
+        android:id="@+id/thumbScroll"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/tvLeftTitle"
+        app:layout_constraintStart_toEndOf="@id/btnPickPhotos"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/thumbContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tvHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="사진은 최소 5장, 최대 10장, 각각 5MB, 전체 50MB를 넘을 수 없습니다. (JPG, PNG, GIF 가능)"
+        android:textColor="#2B2B2B"
+        android:textSize="14sp"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/btnPickPhotos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
