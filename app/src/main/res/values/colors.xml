@@ -6,7 +6,10 @@
     <color name="main">#1BD7D1</color>
     <color name="sub1">#12A19C</color>
     <color name="sub2">#EDFBFA</color>
+<<<<<<< HEAD
     <color name="sub3">#F2F2F2</color>
+=======
+>>>>>>> dev
 
     <color name="gray100">#525252</color>
     <color name="gray80">#949494</color>
