@@ -18,13 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottomNav)
 
-        // 첫 화면
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, HomeFragment())
                 .commit()
-<<<<<<< HEAD
-=======
         }
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -34,7 +31,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_mypage-> replaceFragment(MypageFragment())
             }
             true
->>>>>>> dev
         }
 
         bottomNav.setOnItemSelectedListener { item ->
