@@ -32,12 +32,12 @@ class AddFragment : Fragment() {
 
         val btnNext = view.findViewById<Button>(R.id.btnNext)
 
-        btnNext.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.contentArea, ChatFragment())
-                .addToBackStack(null)
-                .commit()
-        }
+//        btnNext.setOnClickListener {
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.contentArea, ChatFragment())
+//                .addToBackStack(null)
+//                .commit()
+//        }
 
         fun applyProgress(p: Int) {
             tvPercent.text = "${p}%"
