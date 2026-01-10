@@ -22,18 +22,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val rv = view.findViewById<RecyclerView>(R.id.rvUmc)
 
 
+
         val mock = mutableListOf(
             UmcItem(1, "침묵이 만든 불안과 압박", "업무에 치여 답장이 늦어진 '나'와...", "2026.01.10", 25),
             UmcItem(2, "본심을 가린 가시 돋친 대화법", "피로함에 무심코 던진 날카로운 말투가...", "2026.01.09", 0),
-            UmcItem(3, "시간 개념의 차이가 부른 신뢰의 위기", "피치 못할 사정으로 약속에 늦은 '나'...", "2026.12.30", 0) ,
-                    UmcItem(4, "침묵이 만든 불안과 압박", "업무에 치여 답장이 늦어진 '나'와...", "2026.01.10", 25),
-        UmcItem(22, "본심을 가린 가시 돋친 대화법", "피로함에 무심코 던진 날카로운 말투가...", "2026.01.09", 0),
-        UmcItem(13, "시간 개념의 차이가 부른 신뢰의 위기", "피치 못할 사정으로 약속에 늦은 '나'...", "2026.12.30", 0),
-        UmcItem(21, "침묵이 만든 불안과 압박", "업무에 치여 답장이 늦어진 '나'와...", "2026.01.10", 25),
-        UmcItem(112, "본심을 가린 가시 돋친 대화법", "피로함에 무심코 던진 날카로운 말투가...", "2026.01.09", 0),
-        UmcItem(233, "시간 개념의 차이가 부른 신뢰의 위기", "피치 못할 사정으로 약속에 늦은 '나'...", "2026.12.30", 0)
-
+            UmcItem(3, "시간 개념의 차이가 부른 신뢰의 위기", "피치 못할 사정으로 약속에 늦은 '나'...", "2026.12.30", 0)
         )
+
+        updateEmptyState(mock)
+
 
 
 
@@ -57,9 +54,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             onDelete = { pos ->
                 adapter.removeAt(pos)
+                updateEmptyState(adapter.getItems())
             }
+
         )
         swipe.attachToRecyclerView(rv)
+
+
 
 
 
@@ -69,6 +70,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val sheet = ResolveBottomSheetFragment()
         sheet.show(parentFragmentManager, sheet.tag)
     }
+
+    private fun updateEmptyState(items: List<UmcItem>) {
+        val rv = requireView().findViewById<RecyclerView>(R.id.rvUmc)
+        val empty = requireView().findViewById<View>(R.id.emptyView)
+
+        val isEmpty = items.isEmpty()
+        rv.visibility = if (isEmpty) View.GONE else View.VISIBLE
+        empty.visibility = if (isEmpty) View.VISIBLE else View.GONE
+    }
+
 
 }
 
