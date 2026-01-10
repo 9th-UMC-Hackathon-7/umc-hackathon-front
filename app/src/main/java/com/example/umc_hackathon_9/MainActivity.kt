@@ -23,8 +23,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, HomeFragment())
                 .commit()
-<<<<<<< HEAD
-=======
+
         }
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_mypage-> replaceFragment(MypageFragment())
             }
             true
->>>>>>> dev
+
         }
 
         bottomNav.setOnItemSelectedListener { item ->
