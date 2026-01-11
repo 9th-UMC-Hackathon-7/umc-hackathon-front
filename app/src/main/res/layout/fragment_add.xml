@@ -24,7 +24,7 @@
         android:id="@+id/ivLogoTop"
         android:layout_width="30dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/logo_top"
+        android:src="@drawable/logo_top2"
         android:contentDescription="@null"
         app:layout_constraintTop_toBottomOf="@id/topLine"
         app:layout_constraintBottom_toBottomOf="@id/tvTopTitle"

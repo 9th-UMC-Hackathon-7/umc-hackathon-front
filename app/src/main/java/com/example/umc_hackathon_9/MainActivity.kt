@@ -1,6 +1,7 @@
 package com.example.umc_hackathon_9
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -43,6 +44,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        if(intent.getStringExtra("target") == "analysis_fragment"){
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_container, AnalysisFragment())
+            transaction.commit()
+        }
 
 //        val relationBottomSheet = RelationBottomSheet()
 //        relationBottomSheet.show(supportFragmentManager, relationBottomSheet.tag)
@@ -52,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_container, fragment)
             .commit()
+    }
+    fun showBottomNav(show: Boolean) {
+        bottomNav.visibility = if (show) View.VISIBLE else View.GONE
     }
 }
 

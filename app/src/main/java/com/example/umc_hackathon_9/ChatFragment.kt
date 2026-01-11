@@ -78,6 +78,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         // ✅ "내 상황 분석하기" 버튼 = 전송 트리거로 사용 (사진/텍스트 같이 보내기)
         btnAnalyze.setOnClickListener {
             sendCurrentMessage()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_container, OpponentMbtiFragment())
+            transaction.commit()
         }
 
         updateAnalyzeButtonState()
