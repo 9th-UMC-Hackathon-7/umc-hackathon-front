@@ -1,7 +1,6 @@
 package com.example.umc_hackathon_9
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -39,16 +38,10 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.nav_home -> replaceFragment(HomeFragment())
-                R.id.nav_add -> replaceFragment(OpponentMbtiFragment())
+                R.id.nav_add -> replaceFragment(AddFragment())
                 R.id.nav_mypage-> replaceFragment(MypageFragment())
             }
             true
-        }
-        val target = intent.getStringExtra("target")
-        if(target == "analysis_fragment"){
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, AnalysisFragment())
-                .commit()
         }
 
 //        val relationBottomSheet = RelationBottomSheet()
@@ -59,9 +52,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_container, fragment)
             .commit()
-    }
-    fun showBottomNav(show: Boolean) {
-        bottomNav.visibility = if (show) View.VISIBLE else View.GONE
     }
 }
 

@@ -16,10 +16,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MbtiActivity"
             android:exported="true">
@@ -27,8 +23,6 @@
         <activity android:name=".StartActivity"
             android:exported="true"/>
         <activity android:name=".ToneActivity"
-            android:exported="true"/>
-        <activity android:name=".LoadingActivity"
             android:exported="true"/>
     </application>
 
