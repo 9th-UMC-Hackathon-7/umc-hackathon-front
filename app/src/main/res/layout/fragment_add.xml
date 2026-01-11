@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- ───── 상단 헤더 영역 ───── -->
+
+    <!-- 상단 라인 -->
+    <View
+        android:id="@+id/topLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#D9D9D9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 좌측 로고 -->
+    <ImageView
+        android:id="@+id/ivLogoTop"
+        android:layout_width="30dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/logo_top2"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toBottomOf="@id/topLine"
+        app:layout_constraintBottom_toBottomOf="@id/tvTopTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="19.2dp"/>
+
+    <!-- 가운데 타이틀 -->
+    <TextView
+        android:id="@+id/tvTopTitle"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="left"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        android:text="U-MC"
+        android:textColor="@color/main"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/topLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 하단 라인 -->
+    <View
+        android:id="@+id/bottomLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#D9D9D9"
+        app:layout_constraintTop_toBottomOf="@id/tvTopTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- ───── 하단 메인 UI 영역 (네가 만든 그대로) ───── -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="138dp"
+        android:background="@drawable/bg_bottom_sheet"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="26dp"
+        app:layout_constraintTop_toBottomOf="@id/bottomLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- 제목 -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="지금 느끼는 분노가 어느 정도인가요?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#525252"
+            android:gravity="center"
+            android:layout_marginTop="207dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <!-- 설명 -->
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="수치를 나타내는 것만으로도 감정은 다스려지기 시작합니다."
+            android:textSize="14sp"
+            android:textColor="#5D5D5D"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 퍼센트 -->
+        <TextView
+            android:id="@+id/tvPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30%"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="#525252"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 왼쪽 불 -->
+        <TextView
+            android:id="@+id/tvFireLow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔥"
+            android:textSize="26sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPercent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- 불(우) -->
+        <TextView
+            android:id="@+id/tvFireHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔥"
+            android:textSize="44sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPercent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <FrameLayout
+            android:id="@+id/trackContainer"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintTop_toBottomOf="@id/tvFireLow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- 회색 트랙 -->
+            <View
+                android:id="@+id/trackBg"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_track_inactive"/>
+
+            <!-- 민트 트랙(진행) : scaleX로 늘릴거라 왼쪽 고정 -->
+            <View
+                android:id="@+id/trackActive"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_track_active"
+                android:scaleX="0"
+                android:transformPivotX="0dp"/>
+
+            <!-- 민트 동그라미 thumb -->
+            <View
+                android:id="@+id/thumbDot"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:background="@drawable/bg_thumb_dot" />
+
+        </FrameLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:value="30"
+            android:valueFrom="0"
+            android:valueTo="100"
+            app:haloRadius="0dp"
+            app:thumbColor="@android:color/transparent"
+            app:thumbRadius="0dp"
+            app:trackColorActive="@android:color/transparent"
+            app:trackColorInactive="@android:color/transparent"
+            app:trackHeight="0dp"
+            app:layout_constraintTop_toTopOf="@id/trackContainer"
+            app:layout_constraintBottom_toBottomOf="@id/trackContainer"
+            app:layout_constraintStart_toStartOf="@id/trackContainer"
+            app:layout_constraintEnd_toEndOf="@id/trackContainer"/>
+
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:text="내 상황 분석하기"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textColor="#18D3CD"
+            android:backgroundTint="#EFFFFE"
+            app:strokeColor="#18D3CD"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@color/sub2"
+            app:cornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@id/slider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="21dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

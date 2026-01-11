@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/group_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/inbox" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/chart_bar_box" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_profile_main"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_toolbar" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_edit_button"
+        android:text="✎ 수정하기"
+        android:textColor="#9E9E9E"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_main" />
+
+    <TextView
+        android:id="@+id/tv_label_basic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#F8F8F8"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="8dp"
+        android:text="기본정보"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btn_edit_profile" />
+
+    <EditText
+        android:id="@+id/et_name"
+        app:itemTextAppearanceActive="@style/H3Text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
+        android:textColorHint="@color/main"
+        android:background="@drawable/mypage_button"
+        android:hint="이름"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_basic" />
+
+    <LinearLayout
+        android:id="@+id/layout_gender"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/et_name">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_button"
+            android:text="여성"
+            android:textColor="@color/main"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_selected_button"
+            android:text="남성"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_label_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#F8F8F8"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="8dp"
+        android:text="유형"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/layout_gender" />
+
+    <TextView
+        android:id="@+id/tv_label_mbti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="MBTI"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_type" />
+
+    <GridLayout
+        android:id="@+id/grid_mbti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        android:columnCount="4"
+        android:rowCount="2"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_mbti">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_button"
+            android:padding="0dp"
+            android:text="E"
+            android:textColor="@color/main" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_button"
+            android:padding="0dp"
+            android:text="N"
+            android:textColor="@color/main" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_button"
+            android:padding="0dp"
+            android:text="F"
+            android:textColor="@color/main" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_button"
+            android:padding="0dp"
+            android:text="J"
+            android:textColor="@color/main" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_selected_button"
+            android:padding="0dp"
+            android:text="I"
+            android:textColor="@color/white" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_selected_button"
+            android:padding="0dp"
+            android:text="S"
+            android:textColor="@color/white" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_selected_button"
+            android:padding="0dp"
+            android:text="F"
+            android:textColor="@color/white" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_selected_button"
+            android:padding="0dp"
+            android:text="P"
+            android:textColor="@color/white" />
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_label_tone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="말투"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/grid_mbti" />
+
+    <GridLayout
+        android:id="@+id/grid_tone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        android:columnCount="3"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_tone">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_tone_button"
+            android:text="깔끔하게"
+            android:textColor="@color/main" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_tone_button"
+            android:text="깔끔하게"
+            android:textColor="@color/main" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:elevation="0dp"
+            android:translationX="0dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/mypage_tone_button"
+            android:text="깔끔하게"
+            android:textColor="@color/main" />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
