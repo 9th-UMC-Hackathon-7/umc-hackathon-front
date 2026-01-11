@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <!-- 상단 라인 -->
+        <View
+            android:id="@+id/topLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#D9D9D9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 좌측 로고 -->
+        <ImageView
+            android:id="@+id/ivLogoTop"
+            android:layout_width="30dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/logo_top"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toBottomOf="@id/topLine"
+            app:layout_constraintBottom_toBottomOf="@id/tvTopTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="19.2dp"/>
+
+        <!-- 가운데 타이틀 -->
+        <TextView
+            android:id="@+id/tvTopTitle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:gravity="left"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="16dp"
+            android:text="U-MC"
+            android:textColor="@color/main"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/topLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 하단 라인 -->
+        <View
+            android:id="@+id/bottomLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#D9D9D9"
+            app:layout_constraintTop_toBottomOf="@id/tvTopTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <GridLayout
+        android:id="@+id/fragment_gl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topbar">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tab_chat"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="8dp"
+            android:layout_columnWeight="1"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/bg_tab_inactive"
+            android:text="AI 채팅"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            android:stateListAnimator="@null" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tab_analysis"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_columnWeight="1"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/bg_tab_active"
+            android:text="상황 분석"
+            android:textColor="#7EE3D8"
+            android:textSize="12sp"
+            android:stateListAnimator="@null" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tab_generate"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_columnWeight="1"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/bg_tab_inactive"
+            android:text="답변 생성"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            android:stateListAnimator="@null" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tab_feedback"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_columnWeight="1"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/bg_tab_inactive"
+            android:text="답변 피드백"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            android:stateListAnimator="@null" />
+    </GridLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/analysis_rv"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        tools:listitem="@layout/analysis_item"
+        app:layout_constraintTop_toBottomOf="@id/fragment_gl"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/analysis_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상대방에게 제공할 답변을 받고 싶거나\n
+        답변 피드백을 받고 싶다면 답변 생성을 눌러주세요"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/analysis_rv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/create_response_btn"
+            android:layout_width="176dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="20dp"
+            android:text="답변 생성하기"
+            android:textColor="@color/main"
+            android:background="@drawable/mypage_button"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="176dp"
+            android:layout_height="54dp"
+            android:text="답변 피드백 받기"
+            android:textColor="@color/main"
+            android:background="@drawable/mypage_button"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
