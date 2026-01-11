@@ -1,17 +1,35 @@
 package com.example.umc_hackathon_9.network
 
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    private const val BASE_URL = "베이스유알엘넣기기기기기"
+    private const val BASE_URL = "https://api.u-mc.p-e.kr/"
 
-    val projectApi: ProjectApi by lazy {
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .build()
+
+    private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ProjectApi::class.java)
+    }
+
+    val authApi: ProjectApi.AuthApi by lazy {
+        retrofit.create(ProjectApi.AuthApi::class.java)
+    }
+
+    val roomApi: ProjectApi.RoomApi by lazy {
+        retrofit.create(ProjectApi.RoomApi::class.java)
     }
 }

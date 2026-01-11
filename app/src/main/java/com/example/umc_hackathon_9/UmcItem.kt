@@ -7,3 +7,4 @@ data class UmcItem(
     val dateText: String,
     val percent: Int
 )
+
